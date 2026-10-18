@@ -3,6 +3,12 @@ while name == "" {              // empty name: ask again
     print("Name?")
     name = readLine()!
 }
-print("Age?")
-var age: Int = Int(readLine()!)!
-print("Hello \(name), you are \(age)")
+var age: Int? = nil             // nil = no number yet
+while age == nil {              // Int("abc") gives nil: ask again
+    print("Age?")
+    age = Int(readLine()!)
+    if age == nil {
+        print("This is not a number, try again")
+    }
+}
+print("Hello \(name), you are \(age!)")
