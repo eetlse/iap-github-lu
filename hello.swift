@@ -1,14 +1,24 @@
-var name: String = ""
-while name == "" {              // empty name: ask again
-    print("Name?")
-    name = readLine()!
-}
-var age: Int? = nil             // nil = no number yet
-while age == nil {              // Int("abc") gives nil: ask again
-    print("Age?")
-    age = Int(readLine()!)
-    if age == nil {
-        print("This is not a number, try again")
+func readName() -> String {
+    var name: String = ""
+    while name == "" {
+        print("Name?")
+        name = readLine()!
     }
+    return name
 }
-print("Hello \(name), you are \(age!)")
+
+func readAge() -> Int {
+    var age: Int? = nil
+    while age == nil {
+        print("Age?")
+        age = Int(readLine()!)
+        if age == nil {
+            print("This is not a number, try again")
+        }
+    }
+    return age!
+}
+
+var name: String = readName()
+var age: Int = readAge()
+print("Hello \(name), you are \(age)")
